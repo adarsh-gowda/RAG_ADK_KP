@@ -1,0 +1,15 @@
+streamlit
+google-generativeai
+google-adk
+pinecone-client
+llama-index
+
+streamlit
+google-generativeai
+python-dotenv
+langchain
+PyPDF2
+chromadb
+faiss-cpu
+langchain_google_genai
+langchain_community
