@@ -135,45 +135,6 @@ def user_input(user_question):
     st.write("Reply:", response["output_text"])
 
 
-def user_input(user_question):
-    embeddings = GoogleGenerativeAIEmbeddings(
-        model="models/embedding-001",
-        api_key=os.getenv("GOOGLE_API_KEY")
-    )
-    new_db = FAISS.load_local(
-        "faiss_index",
-        embeddings,
-        allow_dangerous_deserialization=True  # ✅ This line fixes the issue
-    )
-    docs = new_db.similarity_search(user_question)
-
-    chain = get_conversational_chain()
-    response = chain(
-        {"input_documents": docs, "question": user_question},
-        return_only_outputs=True
-    )
-    st.write("Reply:", response["output_text"])
-
-
-def user_input(user_question):
-    embeddings = GoogleGenerativeAIEmbeddings(
-        model="models/embedding-001",
-        api_key=os.getenv("GOOGLE_API_KEY")
-    )
-    new_db = FAISS.load_local(
-        "faiss_index",
-        embeddings,
-        allow_dangerous_deserialization=True  # ✅ This line fixes the issue
-    )
-    docs = new_db.similarity_search(user_question)
-
-    chain = get_conversational_chain()
-    response = chain(
-        {"input_documents": docs, "question": user_question},
-        return_only_outputs=True
-    )
-    st.write("Reply:", response["output_text"])
-
 
 
 def main():
